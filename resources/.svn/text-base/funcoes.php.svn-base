@@ -1,0 +1,493 @@
+
+<?php
+   //formata a data para o banco de dados
+	function dataFormParaBanco($data){
+		$aux = explode('/',$data);
+	    return  $aux[2]."-".$aux[1]."-".$aux[0];
+	}
+   //formata a data para retornar para o formulário
+	function dataBancoParaForm($data){
+		$aux = explode("-",$data);
+		return $aux[2]."/".$aux[1]."/".$aux[0];
+	}
+	
+	function RemoveAcentos($str) {
+
+		$str=utf8_decode($str);
+		
+		$clear_array = array( "á" => "a" , "é" => "e" , "í" => "i" , "ó" => "o" , "ú" => "u" ,
+		"à" => "a" , "è" => "e" , "ì" => "i" , "ò" => "o" , "ù" => "ù" ,
+		"ã" => "a" , "õ" => "o" , "â" => "a" , "ê" => "e" , "î" => "i" , "ô" => "o" , "û" => "u" ,
+		"," => ""  , "!" => "" , "#" => "" , "%" => "", "¬" => "" , "{" => "" , "}" => "" ,
+		"^" => ""  , "´" => "" , "`" => "" , "" => "" , "/" => "" , ";" => "" , ":" => "" , "?" => "" ,
+		"¹" => "1" , "²" => "2" , "³" => "3" , "ª" => "a" , "º" => "o" , "ç" => "c" , "ü" => "u" ,
+		"ä" => "a" ,"ï" => "i" , "ö" => "o" , "ë" => "e" , "$" => "s" , "ÿ" => "y" , "w" => "w" , "<" => "" ,
+		">" => "" ,"[" => "" , "]" => "" , "&" => "e" , " " => "+"  );
+
+		foreach($clear_array as $key=>$val){
+		$str = str_replace($key, $val, $str);
+		}
+		return $str;
+	}
+	
+	function remover($str, $enc = "UTF-8"){
+		$acentos = array(
+		'A' => '/&Agrave;|&Aacute;|&Acirc;|&Atilde;|&Auml;|&Aring;/',
+		'a' => '/&agrave;|&aacute;|&acirc;|&atilde;|&auml;|&aring;/',
+		'C' => '/&Ccedil;/',
+		'c' => '/&ccedil;/',
+		'E' => '/&Egrave;|&Eacute;|&Ecirc;|&Etilde;|&Euml;/',
+		'e' => '/&egrave;|&eacute;|&ecirc;|&etilde;|&euml;/',
+		'I' => '/&Igrave;|&Iacute;|&Icirc;|&Itilde;|&Iuml;/',
+		'i' => '/&igrave;|&iacute;|&icirc;|&itilde;|&iuml;/',
+		'N' => '/&Ntilde;/',
+		'n' => '/&ntilde;/',
+		'O' => '/&Ograve;|&Oacute;|&Ocirc;|&Otilde;|&Ouml;/',
+		'o' => '/&ograve;|&oacute;|&ocirc;|&otilde;|&ouml;/',
+		'U' => '/&Ugrave;|&Uacute;|&Ucirc;|&Uuml;/',
+		'u' => '/&ugrave;|&uacute;|&ucirc;|&uuml;/',
+		'Y' => '/&Yacute;/',
+		'y' => '/&yacute;|&yuml;/',
+		'a.' => '/&ordf;/',
+		'o.' => '/&ordm;/'
+		);
+		
+		return preg_replace($acentos, array_keys($acentos), htmlentities($str, ENT_NOQUOTES, $enc));
+	}
+	
+		function diasemana($data) {  // Traz o dia da semana para qualquer data informada
+			
+		$dia =  substr($data,0,2);
+		$mes =  substr($data,3,2);
+		$ano =  substr($data,6,9);
+		$diasemana = date("w", mktime(0,0,0,$mes,$dia,$ano) );
+		switch($diasemana){  
+		                                case"0": $diasemana = "Domingo";
+		                                break;  
+		                                case"1": $diasemana = "Segunda-Feira";
+		                                break;  
+		                                case"2": $diasemana = "Terça-Feira";
+		                                break;  
+		                                case"3": $diasemana = "Quarta-Feira";
+		                                break;  
+		                                case"4": $diasemana = "Quinta-Feira";
+		                                break;  
+		                                case"5": $diasemana = "Sexta-Feira";
+		                                break;  
+		                                case"6": $diasemana = "Sábado";
+		                                break;  
+		                         }
+	}
+	
+		// A $DATA2 DEVERÁ SER MAIOR QUE A $DATA1
+		// O FORMATO DAS DATAS DEVEM SER DD/MM/AAAA
+	function mesesDeDiferenca($data1, $data2) {
+	
+		if($data1 && $data2) {
+		
+			$vetorData1 = explode("/", $data1);
+			$vetorData2 = explode("/", $data2);
+			
+			$resultado = ($vetorData2[2] - $vetorData1[2])*12;
+			if ($vetorData1[1] > $vetorData2[1]) {
+				$resultado -= ($vetorData1[1] - $vetorData2[1]);
+			}
+			else if ($vetorData2[1] > $vetorData1[1]) {
+				$resultado += ($vetorData2[1] - $vetorData1[1]);
+			}
+		}
+		else {
+			$resultado = 0;
+		}
+		
+		return $resultado;
+	}
+
+	
+
+
+	/**
+	 * função que devolve em formato JSON os dados da unidade
+	 */
+	function retorna( $id_unidade )
+	{
+		include_once('db.php');
+		$id_unidade = (int)$id_unidade;
+
+		$sql = "SELECT id_unidade,numero_unidade, nome_unidade, tipo FROM tb_unidade WHERE id_unidade = {$id_unidade} ";
+		$query = mysql_query( $sql );
+
+
+		$arr = Array();
+		if( mysql_num_rows( $query ) )
+		{
+			while( $dados = mysql_fetch_object( $query ) )
+			{
+				$arr['nome_unidade'] = $dados->nome_unidade;
+				
+			}
+		}
+		else
+			$arr[] = 'nome_unidade: não encontrado';
+
+		return json_encode( $arr );
+		mysql_close();
+	}
+
+/* só se for enviado o parâmetro, que devolve o combo */
+if( isset($_GET['id_unidade']) )
+{
+	echo retorna( $_GET['id_unidade'] );
+}
+
+
+/*
+function limiteSessao(){
+	$temposessao = 300; //em segundos
+	session_start(); 
+
+if ($_SESSION["sessiontime"]) { 
+	if ($_SESSION["sessiontime"] < (time() - $temposessao)) { 
+		session_unset();
+		echo "Sua sessão Expirou!";
+		} 
+} else { 
+	session_unset();
+
+} 
+
+$_SESSION["sessiontime"] = time();
+}
+
+	function tempoSessao(){
+		$registro = $_SESSION['registro'];
+		$limite = $_SESSION['limite'];
+		if($registro)// verifica se a session  registro esta ativa
+		{
+		 $segundos = time()- $registro;
+		}
+		// fim da verificação da session registro
+		
+		/* verifica o tempo de inatividade 
+		se ele tiver ficado mais de 600 segundos sem atividade ele destroi a session
+		se não ele renova o tempo e ai é contado mais 900 segundos*/
+		/*
+		if($segundos>$limite)
+		{
+		 session_destroy();
+		 die( "<script language='javascript'>alert('Sua sessao expirou.');location. href= '../login.php';</script>");
+		
+		}
+		else{
+		 $_SESSION['registro'] = time();
+		}
+		// fim da verificação de inatividade
+	}*/
+
+	function verificaNavegador(){
+		  $useragent = $_SERVER['HTTP_USER_AGENT'];
+ 
+		  if (preg_match('|MSIE ([0-9].[0-9]{1,2})|',$useragent,$matched)) {
+		    $browser_version=$matched[1];
+		    return 'IE';
+		  } elseif (preg_match( '|Opera/([0-9].[0-9]{1,2})|',$useragent,$matched)) {
+		    $browser_version=$matched[1];
+		    return 'Opera';
+		  } elseif(preg_match('|Firefox/([0-9\.]+)|',$useragent,$matched)) {
+		    $browser_version=$matched[1];
+		    return  'Firefox';
+		  } elseif(preg_match('|Chrome/([0-9\.]+)|',$useragent,$matched)) {
+		    $browser_version=$matched[1];
+		    return  'Chrome';
+		  } elseif(preg_match('|Safari/([0-9\.]+)|',$useragent,$matched)) {
+		    $browser_version=$matched[1];
+		    return 'Safari';
+		  } else {
+		    // browser not recognized!
+		    $browser_version = 0;
+		    return 'outro';
+		  }
+		 
+	}
+	
+	function especialidadeId($especialidade){
+		$daoEspecialidade = new EspecialidadeDAO();
+		foreach ($daoEspecialidade->pesquisarPorIdNome($especialidade) as $valor) {
+			return $especialidade_nome = $valor['nome_especialidade'];
+			
+		}
+	}
+	
+	function especialidadeTipo($especialidade){
+		$daoEspecialidade = new EspecialidadeDAO();
+		foreach ($daoEspecialidade->pesquisarPorIdNome($especialidade) as $valor) {
+			return $tipo_especialidade = $valor['tipo'];
+			
+		}
+	}
+	
+	function pacienteNome($paciente){
+		$daoPaciente = new PacienteDAO();
+		foreach ($daoPaciente->pesquisarPorIdNome($paciente) as $valor) {
+			return $nome = $valor['nome'];
+		}
+	}
+	
+	function pacienteRXNome($paciente){
+		$daoPaciente = new PacienteRXDAO();
+		foreach ($daoPaciente->pesquisarPorId($paciente) as $valor) {
+			return $nome = $valor['nome_paciente_rx'];
+		}
+	}
+	
+	function pacienteRXSes($paciente){
+		$daoPaciente = new PacienteRXDAO();
+		foreach ($daoPaciente->pesquisarPorId($paciente) as $valor) {
+			return $nome = $valor['ses_paciente_rx'];
+		}
+	}
+	
+	function pacienteTelefone1($paciente){
+		$daoPaciente = new PacienteDAO();
+		foreach ($daoPaciente->pesquisarPorIdTelefone($paciente) as $valor) {
+			return $telefone1 = $valor['telefone1'];
+		}
+	}
+	
+	function pacienteTelefone2($paciente){
+		$daoPaciente = new PacienteDAO();
+		foreach ($daoPaciente->pesquisarPorIdTelefone($paciente) as $valor) {
+			return $telefone2 = $valor['telefone2'];
+		}
+	}
+	
+	function pacienteTelefone3($paciente){
+		$daoPaciente = new PacienteDAO();
+		foreach ($daoPaciente->pesquisarPorIdTelefone($paciente) as $valor) {
+			return $telefone3 = $valor['telefone3'];
+		}
+	}
+				
+	function pacienteCns($paciente){
+		$daoPacienteCNS = new PacienteDAO();
+		foreach ($daoPacienteCNS->pesquisarPorIdCNS($paciente) as $valor) {
+			return $cns = $valor['cns'];
+		}
+	}
+	
+	function pacienteExibeSes($paciente){
+		$daoPacienteCNS = new PacienteDAO();
+		foreach ($daoPacienteCNS->pesquisarPorId($paciente) as $valor) {
+			return $ses = $valor['ses'];
+		}
+	}
+	
+	function pacienteNascimento($paciente){
+		$daoPacienteNascimento = new PacienteDAO();
+		foreach ($daoPacienteNascimento->pesquisarPorId($paciente) as $valor) {
+			return $nascimento = $valor['dt_nascimento'];
+		}
+	}
+	
+	function pacienteSES($paciente){
+		$daoPacienteSES = new PacienteDAO();
+		foreach ($daoPacienteSES->pesquisarPorSES($paciente) as $valor) {
+			return $id_paciente = $valor['id_paciente'];
+		}
+	}
+				
+	function usuarioUnidade($usuario){
+		$usuarioUnidade = new UsuarioDAO();
+		foreach ($usuarioUnidade->pesquisarIdUnidade($usuario) as $valor){
+			return $id_unidade = $valor['id_unidade'];
+		}
+	}
+	
+	function usuarioNome($usuario){
+		$usuarioDao = new UsuarioDAO();
+		foreach ($usuarioDao->pesquisarNome($usuario) as $valor){
+			return $nome = $valor['nome'];
+		}
+	}
+	
+	function usuarioMatricula($usuario){
+		$usuarioDao = new UsuarioDAO();
+		foreach ($usuarioDao->pesquisar($usuario) as $valor){
+			return $nome = $valor['matricula'];
+		}
+	}
+				
+	function unidadeId($unidade){
+		$unidadeId = new UnidadeDAO();
+		foreach ($unidadeId->pesquisar($unidade) as $valor){
+			return $nome_unidade = $valor['nome_unidade'];
+		}
+	}
+	
+	function unidadeNumero($unidade){
+		$unidadeId = new UnidadeDAO();
+		foreach ($unidadeId->pesquisar($unidade) as $valor){
+			return $numero_unidade = $valor['numero_unidade'];
+		}
+	}
+	
+	function endNumero($unidade){
+		$unidadeId = new UnidadeDAO();
+		foreach ($unidadeId->pesquisar($unidade) as $valor){
+			return $endereco_unidade = $valor['endereco_unidade'];
+		}
+	}
+	
+	function unidadeTelefone($unidade){
+		$unidadeId = new UnidadeDAO();
+		foreach ($unidadeId->pesquisar($unidade) as $valor){
+			return $telefone_unidade = $valor['telefone_unidade'];
+		}
+	}
+	
+	function perfil($perfil){
+		$daoP = new PerfilDAO();
+		foreach ($daoP->pesquisar($perfil) as $valor) {
+			if ($perfil == NULL){
+				$nome_perfil = 'SEM PERFIL';
+				echo $nome_perfil;
+			}
+			else echo $nome_perfil = $valor['nome_perfil'];
+				
+	    }
+  }
+  
+  	function perfil2($perfil){
+		$daoP = new PerfilDAO();
+		foreach ($daoP->pesquisar($perfil) as $valor) {
+			return $nome_perfil = $valor['nome_perfil'];
+				
+	    }
+  }
+  
+  	function usuarioId($usuario){
+		$daoUsuarioId = new UsuarioDAO();
+		foreach ($daoUsuarioId->pesquisarIdUnidade($usuario) as $valor) {
+			return $id_unidade = $valor['id_unidade'];
+		}
+	}
+	
+	function unidadeRegional($unidade){
+		$unidadeRegional = new UnidadeDAO();
+		foreach ($unidadeRegional->pesquisarIdRegional($unidade) as $valor){
+			return $id_regional = $valor['id_regional'];
+		}
+	}
+	
+	function regionalNome($regional){
+		$regionalDao = new RegionalDAO();
+		foreach (($regionalDao->pesquisarNome($regional)) as $valor){
+			return $nome_regional = $valor['nome'];
+		}
+	}
+	
+	function regionalRa($regional){
+		$regionalRa = new RegionalDAO();
+		foreach ($regionalRa->pesquisarRA($regional) as $valor){
+			return $id_ra = $valor['id_ra'];
+		}
+	}
+	
+	function raId($ra){
+		$raId = new RaDAO();
+		foreach ($raId->pesquisar($ra) as $valor){
+			return $regiao_ra = $valor['regiao'];
+		}
+	}
+	
+		function raNome($ra){
+		$raDao = new RaDAO();
+		foreach ($raDao->pesquisar($ra) as $valor){
+			return $regiao_ra = $valor['nome'];
+		}
+	}
+
+function fbarcode($valor){
+
+$fino = 1 ;
+$largo = 3 ;
+$altura = 40 ;
+
+  $barcodes[0] = "00110" ;
+  $barcodes[1] = "10001" ;
+  $barcodes[2] = "01001" ;
+  $barcodes[3] = "11000" ;
+  $barcodes[4] = "00101" ;
+  $barcodes[5] = "10100" ;
+  $barcodes[6] = "01100" ;
+  $barcodes[7] = "00011" ;
+  $barcodes[8] = "10010" ;
+  $barcodes[9] = "01010" ;
+  
+  for($f1=9;$f1>=0;$f1--){
+    for($f2=9;$f2>=0;$f2--){
+      $f = ($f1 * 10) + $f2 ;
+      $texto = "" ;
+      for($i=1;$i<6;$i++){
+        $texto .=  substr($barcodes[$f1],($i-1),1) . substr($barcodes[$f2],($i-1),1);
+      }
+      $barcodes[$f] = $texto;
+    }
+  }
+
+//Desenho da barra
+
+//Guarda inicial
+?>
+  <img src="../resources/imagens/p.gif" width="<?php echo $fino; ?>" height="<?php echo $altura; ?>" border="0" />
+  <img src="../resources/imagens/b.gif" width="<?php echo $fino; ?>" height="<?php echo $altura; ?>" border="0" />
+  <img src="../resources/imagens/p.gif" width="<?php echo $fino; ?>" height="<?php echo $altura; ?>" border="0" />
+  <img src="../resources/imagens/b.gif" width="<?php echo $fino; ?>" height="<?php echo $altura; ?>" border="0" />
+<?php
+$texto = $valor ;
+if((strlen($texto) % 2) <> 0){
+	$texto = "0" . $texto;
+}
+
+// Draw dos dados
+while (strlen($texto) > 0) {
+  $i = round(esquerda($texto,2));
+  $texto = direita($texto,strlen($texto)-2);
+  $f = $barcodes[$i];
+  for($i=1;$i<11;$i+=2){
+    if (substr($f,($i-1),1) == "0") {
+      $f1 = $fino ;
+    }else{
+      $f1 = $largo ;
+    }
+?>
+   <img src="../resources/imagens/p.gif" width="<?php echo $f1; ?>" height="<?php echo $altura; ?>" border="0" />
+<?php
+    if (substr($f,$i,1) == "0") {
+      $f2 = $fino ;
+    }else{
+      $f2 = $largo ;
+    }
+?>
+  <img src="../resources/imagens/b.gif" width="<?php echo $f2; ?>" height="<?php echo $altura; ?>" border="0" />
+<?php
+  }
+}
+
+// Draw guarda final
+?>
+<img src="../resources/imagens/p.gif" width="<?php echo $largo; ?>" height="<?php echo $altura; ?>" border="0" />
+<img src="../resources/imagens/b.gif" width="<?php echo $fino; ?>" height="<?php echo $altura; ?>" border="0" />
+<img src="../resources/imagens/p.gif" width="<?php echo 1; ?>" height="<?php echo $altura; ?>" border="0" />
+  <?php
+} //Fim da função
+
+function esquerda($entra,$comp){
+	return substr($entra,0,$comp);
+}
+
+function direita($entra,$comp){
+	return substr($entra,strlen($entra)-$comp,$comp);
+}
+	
+?>

@@ -1,0 +1,37 @@
+<?php
+
+if($_GET['func'] == "cid" && isset($_GET['func'])) { 
+   drop_1($_GET['drop_var']); 
+}
+
+function drop_1($drop_var)
+{  
+    include_once('db.php');
+	$result = mysql_query("SELECT patologia FROM tb_cid WHERE num_cid='$drop_var'") 
+	or die(mysql_error());
+	
+		   while($drop_2 = mysql_fetch_array( $result )) 
+			{
+			   echo "<textarea name='patologia' disabled='disabled' id='patologia' cols='30' rows='4'>".$drop_2['patologia']."</textarea>";
+			}
+	
+
+}
+
+if($_GET['func'] == "id_unidade" && isset($_GET['func'])) { 
+   drop($_GET['drop_var']); 
+}
+
+function drop($drop_var)
+{  
+    include_once('db.php');
+	$result = mysql_query("SELECT nome_unidade FROM tb_unidade WHERE id_unidade='$drop_var'") 
+	or die(mysql_error());
+	
+		   while($drop_2 = mysql_fetch_array( $result )) 
+			{
+			   echo "<input class='gg' type='text' name='nome_unidade' value='".$drop_2['nome_unidade']."' disabled='disabled' id='nome_unidade' size='40' />";
+			}
+}
+
+?>
