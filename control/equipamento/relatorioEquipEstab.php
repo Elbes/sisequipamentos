@@ -54,10 +54,10 @@ if (PHP_SAPI == 'cli')
 	$objPHPExcel = new PHPExcel();
 	//Propriedades do documento
 	$objPHPExcel->getProperties()->setCreator("SIGEP")
-	->setTitle("Manutenções por período e status")
+	->setTitle("Esquipamentos por período")
 	->setCategory("Relatório");
 	
-	$objPHPExcel->getActiveSheet()->SetCellValue('A1', "Relatório de Manutenções - SIGEP");
+	$objPHPExcel->getActiveSheet()->SetCellValue('A1', "Relatório de Equipamentos - SIGEP");
 	//MESCLA AS COLUNAS
 	$objPHPExcel->getActiveSheet()->mergeCells("A1:G1");
 	

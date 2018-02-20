@@ -82,7 +82,7 @@
                                    <li role="separator" class="divider"></li>
         						               <li><a href="/sisequipamentos/view/equipamento/formRelatorioEquip.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Equipamentos</a></li>
                                    <li role="separator" class="divider"></li>
-                                   <li><a href="#"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Usuário</a></li>
+                                   <li><a href="/sisequipamentos/view/usuario/formRelatorioUsuario.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Usuário</a></li>
         						   
                                </ul>
                            </li>
