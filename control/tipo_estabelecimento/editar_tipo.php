@@ -21,8 +21,8 @@
                                                
 		              $obj = new TipoEstabVO();
 		              
-		              $obj->setTipo(utf8_decode($_REQUEST["tipo"]));
-		              $obj->setObs(utf8_decode($_REQUEST["obs"]));
+		              $obj->setTipo(utf8_encode($_REQUEST["tipo"]));
+		              $obj->setObs(utf8_encode($_REQUEST["obs"]));
 		             
 		              $dao = new TipoEstabDAO();
 		              

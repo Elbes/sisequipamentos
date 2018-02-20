@@ -58,14 +58,14 @@
                             $obj = new EstabelecimentoDAO(); 
                             foreach ($obj->listar() as $key){
                             	$id_estabelecimento = $key['id_estabelecimento'];
-                            	$nome_estabelecimento = utf8_encode($key['nome_estabelecimento']);
+                            	$nome_estabelecimento = utf8_decode($key['nome_estabelecimento']);
                             	$numero_estabelecimento = $key['numero_estabelecimento'];
                             	$id_tipo_estabelecimento = $key['id_tipo_estabelecimento'];
                             	$id_regiao = $key['id_regiao'];
-                            	$cidade = utf8_encode($key['cidade_estabelecimento']);
+                            	$cidade = utf8_decode($key['cidade_estabelecimento']);
                             	
-                            	$nome_regiao = utf8_encode(regiaoId($id_regiao));
-                            	$tipo_estab = utf8_encode(tipoEstab($id_tipo_estabelecimento));
+                            	$nome_regiao = utf8_decode(regiaoId($id_regiao));
+                            	$tipo_estab = utf8_decode(tipoEstab($id_tipo_estabelecimento));
                             		
                             	echo "
                             	<tr>

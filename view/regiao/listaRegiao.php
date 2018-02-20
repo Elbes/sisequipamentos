@@ -66,9 +66,9 @@ and open the template in the editor.
                             foreach ($obj->listar() as $key){
                             	$id_regiao = $key['id_regiao'];
                             	$numero_regiao = $key['numero_regiao'];
-                            	$nome_regiao = utf8_encode($key['nome_regiao']);
+                            	$nome_regiao = utf8_decode($key['nome_regiao']);
                             	$sigla = $key['sigla_regiao'];
-                            	$descricao = utf8_encode($key['descricao_regiao']);
+                            	$descricao = utf8_decode($key['descricao_regiao']);
                             		
                             	echo "
                             	<tr>

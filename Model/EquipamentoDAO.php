@@ -74,7 +74,7 @@ class EquipamentoDAO extends Conexao{
 	 					                       telefone_setor= :telefone_setor, ramal_setor= :ramal_setor,assistencia_tec= :assistencia_tec,
 	 					                       tel_assistencia_tec= :tel_assistencia_tec, recursos= :recursos, valor_aquisicao= :valor_aquisicao, 
 	 					                       vencimento_garantia= :vencimento_garantia, contrato_manutencao= :contrato_manutencao,
-	 					                       numero_nota_fiscal= :numero_nota_fiscal,data_instalacao= :data_instalacao, manual_tecnico= :manual_tecnico, tensao_equip= :tensao_equip,
+	 					                       numero_nota_fiscal= :numero_nota_fiscal,data_aquisicao= :data_aquisicao, manual_tecnico= :manual_tecnico, tensao_equip= :tensao_equip,
 	 					                       potencia_equip= :potencia_equip, material_entregue= :material_entregue, dhs_atualizacao= :dhs_atualizacao
 	 					                       WHERE id_equipamento= {$id_equip}");
 	 			
@@ -96,7 +96,7 @@ class EquipamentoDAO extends Conexao{
 							vencimento_garantia  	=>$equip->getVencimentoGarantia(),
 							contrato_manutencao  	=>$equip->getContratoManutencao(),
 							numero_nota_fiscal   	=>$equip->getNumeroNotaFiscal(),
-							data_instalacao      	=>$equip->getDataInstalacao(),
+							data_aquisicao       =>$equip->getDataAquisicao(),
 							manual_tecnico      	=>$equip->getManualTecnico(),
 							tensao_equip         	=>$equip->getTensaoEquip(),
 							potencia_equip       	=>$equip->getPotenciaEquip(),

@@ -44,14 +44,14 @@
         $obj = new EstabelecimentoDAO();
         foreach ($obj->pesquisar($_REQUEST['id_estabelecimento']) as $key){
         	$id_estabelecimento = $key['id_estabelecimento'];
-        	$nome_estabelecimento = $key['nome_estabelecimento'];
+        	$nome_estabelecimento = utf8_decode($key['nome_estabelecimento']);
         	$numero_estabelecimento = $key['numero_estabelecimento'];
         	$id_tipo_estabelecimento = $key['id_tipo_estabelecimento'];
         	$id_regiao = $key['id_regiao'];
-        	$cidade = $key['cidade_estabelecimento'];
+        	$cidade = utf8_decode($key['cidade_estabelecimento']);
         }
        
-        $tipo_estab = tipoEstab($id_tipo_estabelecimento);
+        $tipo_estab = utf8_decode(tipoEstab($id_tipo_estabelecimento));
         ?>
 
         <div class="container">
@@ -127,7 +127,7 @@
                                     <div class="form-group">                                     
                                         <label for="regiao_estabelecimento">Região</label>
                                         <select class="dropdown form-control" name="id_regiao" required>
-                                            <option value="<?php echo $id_regiao;?>"><?php echo utf8_encode(regEstab($id_regiao)); ?></option>
+                                            <option value="<?php echo $id_regiao;?>"><?php echo utf8_decode(regEstab($id_regiao)); ?></option>
                                             <?php 
 											$regiaoDao = new RegiaoDAO();
 												foreach ($regiaoDao->listar() as $regiao){
