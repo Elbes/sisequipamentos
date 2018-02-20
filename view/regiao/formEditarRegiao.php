@@ -27,10 +27,10 @@
         $daoReg = new RegiaoDAO();
         foreach ($daoReg->pesquisar($_REQUEST['id_regiao']) as $reg){
         	$id_reg = $reg['id_regiao'];
-        	$nome_regiao = utf8_encode($reg['nome_regiao']);
+        	$nome_regiao = utf8_decode($reg['nome_regiao']);
         	$numero_regiao = $reg['numero_regiao'];
         	$sigla = $reg['sigla_regiao'];
-        	$descricao = utf8_encode($reg['descricao_regiao']);
+        	$descricao = utf8_decode($reg['descricao_regiao']);
         	
         }
         

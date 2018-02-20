@@ -45,17 +45,17 @@
                 <?php
                 if ($tipo_perfil == 'ADMG'){
                  ?>   
-                         <li><a href="/sisequipamentos/view/usuario/listaUsuario.php">Usuário</a></li>
+                         <li><a href="/view/usuario/listaUsuario.php">Usuário</a></li>
                           <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                   <li><a href="/sisequipamentos/view/regiao/listaRegiao.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Região" aria-hidden="true"></span> Região</a></li>
+                                   <li><a href="/view/regiao/listaRegiao.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Região" aria-hidden="true"></span> Região</a></li>
                                    <li role="separator" class="divider"></li>
         						   <li><a href="/view/tipo_estabelecimento/listaTipoEstabelecimento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Tipo de Estabelecimento" aria-hidden="true"></span> Tipo de Estabelecimento</a></li>
                                    <li role="separator" class="divider"></li>
-                                   <li><a href="/sisequipamentos/view/estabelecimento/listaEstabelecimento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Estabelecimento" aria-hidden="true"></span> Estabeleciemnto</a></li>
+                                   <li><a href="/view/estabelecimento/listaEstabelecimento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Estabelecimento" aria-hidden="true"></span> Estabeleciemnto</a></li>
         						   <li role="separator" class="divider"></li>
-        						   <li><a href="/sisequipamentos/view/equipamento/listaEquipamento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Equipamento" aria-hidden="true"></span> Equipamento</a></li>
+        						   <li><a href="/view/equipamento/listaEquipamento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Equipamento" aria-hidden="true"></span> Equipamento</a></li>
                                </ul>
                            </li>
                     
@@ -63,7 +63,7 @@
                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-        							<li><a href="/sisequipamentos/view/equipamento/listaEquipamento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Equipamento" aria-hidden="true"></span> Equipamento</a></li>
+        							<li><a href="/view/equipamento/listaEquipamento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Equipamento" aria-hidden="true"></span> Equipamento</a></li>
                                 </ul>
                            </li>
                 	<?php	}  ?>
@@ -71,23 +71,23 @@
                            <li class="dropdown">
                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manutenção <span class="caret"></span></a>
                                <ul class="dropdown-menu">
-                                   <li><a href="/sisequipamentos/view/manutencao/listaManutencao.php"><span class="glyphicon glyphicon-search" title="Cadastrar Demanda" aria-hidden="true"></span> Manutenções Abertas</a></li>
+                                   <li><a href="/view/manutencao/listaManutencao.php"><span class="glyphicon glyphicon-search" title="Cadastrar Demanda" aria-hidden="true"></span> Manutenções Abertas</a></li>
                                </ul>
                            </li>
                            
                            <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios <span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                   <li><a href="/sisequipamentos/view/manutencao/formOpRelatorioManutencao.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Manutenções</a></li>
+                                   <li><a href="/view/manutencao/formOpRelatorioManutencao.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Manutenções</a></li>
                                    <li role="separator" class="divider"></li>
-        						               <li><a href="/sisequipamentos/view/equipamento/formRelatorioEquip.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Equipamentos</a></li>
+        						               <li><a href="/view/equipamento/formRelatorioEquip.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Equipamentos</a></li>
                                    <li role="separator" class="divider"></li>
                                    <li><a href="/sisequipamentos/view/usuario/formRelatorioUsuario.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Usuário</a></li>
         						   
                                </ul>
                            </li>
                 
-                   <li><a href="#" onclick="swal({   title: 'Sair?', type: 'warning', text:'Tem certeza que deseja realmente Sair?',  showCancelButton: true,   confirmButtonColor: '#DD6B55',confirmButtonText: 'SAIR', cancelButtonText: 'CANCELAR', closeOnConfirm: false}, function(){window.location.href = '/sisequipamentos/view/logout.php';});">Encerrar Sessão</a></li>
+                   <li><a href="#" onclick="swal({   title: 'Sair?', type: 'warning', text:'Tem certeza que deseja realmente Sair?',  showCancelButton: true,   confirmButtonColor: '#DD6B55',confirmButtonText: 'SAIR', cancelButtonText: 'CANCELAR', closeOnConfirm: false}, function(){window.location.href = '/view/logout.php';});">Encerrar Sessão</a></li>
                 
               </ul>
                 

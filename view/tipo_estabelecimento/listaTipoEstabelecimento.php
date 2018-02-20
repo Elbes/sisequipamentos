@@ -54,8 +54,8 @@
                             $obj = new TipoEstabDAO(); 
                             foreach ($obj->listar() as $key){
                             	$id_tipo_estabelecimento = $key['id_tipo_estabelecimento'];
-                            	$tipo = utf8_encode($key['tipo']);
-                            	$obs = utf8_encode($key['obs_tipo']);
+                            	$tipo = utf8_decode($key['tipo']);
+                            	$obs = utf8_decode($key['obs_tipo']);
                             	
                             	echo "
                             	<tr>
