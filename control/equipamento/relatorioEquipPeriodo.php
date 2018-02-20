@@ -46,7 +46,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
 $arquivo = "Equipamentos_Período";
 if (PHP_SAPI == 'cli')
-	die('Relatório de Manutenções');
+	die('Relatório de Equipamentos');
 
 	/** Include PHPExcel */
 	require_once '../../resources/PHPExcel/Classes/PHPExcel.php';
@@ -54,15 +54,15 @@ if (PHP_SAPI == 'cli')
 	$objPHPExcel = new PHPExcel();
 	//Propriedades do documento
 	$objPHPExcel->getProperties()->setCreator("SIGEP")
-	->setTitle("Manutenções por período e status")
+	->setTitle("Equipamentos por período e status")
 	->setCategory("Relatório");
 	
-	$objPHPExcel->getActiveSheet()->SetCellValue('A1', "Relatório de Manutenções - SIGEP");
+	$objPHPExcel->getActiveSheet()->SetCellValue('A1', "Relatório de Equipamentos - SIGEP");
 	//MESCLA AS COLUNAS
 	$objPHPExcel->getActiveSheet()->mergeCells("A1:G1");
 	
 	// Define o título da planilha, seria o nome da aba
-	$objPHPExcel->getActiveSheet()->setTitle('Manutenções');
+	$objPHPExcel->getActiveSheet()->setTitle('Equipamentos');
 	
 	//ALINHAMENTO CENTRAL
 	$objPHPExcel->getActiveSheet()->getStyle('A1:G1')->getAlignment()

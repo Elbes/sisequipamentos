@@ -46,7 +46,7 @@
               $obj->setVencimentoGarantia($_REQUEST['vencimento_garantia']);
               $obj->setContratoManutencao(utf8_encode($_REQUEST['contrato_manutencao']));
               $obj->setNumeroNotaFiscal($_REQUEST['numero_nota_fiscal']);
-              $obj->setDataInstalacao($_REQUEST['data_instalacao']);
+              $obj->setDataAquisicao($_REQUEST['data_aquisicao']);
               $obj->setManualTecnico(utf8_encode($_REQUEST['manual_tecnico']));
               $obj->setTensaoEquip($_REQUEST['tensao_equip']);
               $obj->setPotenciaEquip($_REQUEST['potencia_equip']);

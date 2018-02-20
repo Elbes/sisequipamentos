@@ -107,7 +107,7 @@ if (PHP_SAPI == 'cli')
 	            //RECEBE OS DADOS E DEFINE A LARGURA DAS COLUNAS
 			    //$objPHPExcel->getActiveSheet()->SetCellValue('A'.$cont,$key['id_usuario'])->getColumnDimension('A')->setAutoSize(true);
 				$objPHPExcel->getActiveSheet()->SetCellValue('A'.$cont,$key['matricula'])->getColumnDimension('A')->setAutoSize(true);
-				$objPHPExcel->getActiveSheet()->SetCellValue('B'.$cont,utf8_decode($key['nome_usuario'] . " " . $key['sobrenome_usuario']))->getColumnDimension('B')->setWidth(12);
+				$objPHPExcel->getActiveSheet()->SetCellValue('B'.$cont,utf8_decode($key['nome_usuario'] . " " . $key['sobrenome_usuario']))->getColumnDimension('B')->setAutoSize(true);
 				$objPHPExcel->getActiveSheet()->SetCellValue('C'.$cont,$key['email'])->getColumnDimension('C')->setAutoSize(true);
 				//$objPHPExcel->getActiveSheet()->SetCellValue('E'.$cont,$key['senha'])->getColumnDimension('E')->setAutoSize(true);
 				$objPHPExcel->getActiveSheet()->SetCellValue('D'.$cont,$key['status_usuario'])->getColumnDimension('D')->setAutoSize(true);

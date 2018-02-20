@@ -87,7 +87,7 @@
                             	$executor_contrato= utf8_decode(strtoupper($key['executor_contrato']));
                             	$id_estabelecimento = $key['id_estabelecimento'];
                             	
-                            	$estabelecimento = utf8_encode(nomeEstab($id_estabelecimento));
+                            	$estabelecimento = utf8_decode(nomeEstab($id_estabelecimento));
                             	                            		
                             	echo "
                             	<tr>

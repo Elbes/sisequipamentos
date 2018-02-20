@@ -27,13 +27,21 @@
             
         </script>
         
+       <script type="text/javascript">
+			
+			function abrejan(theURL,winName,features) { //v2.0
+			 window.open(theURL,winName,features);
+			}
+			
+		</script> 
         <script type="text/javascript">
 		    $(document).ready(function(){
 		        $('#id_regiao').change(function(){
-		            $('#estabelecimento').load('equipEdit.php?id_regiao='+$('#id_regiao').val());
+		            $('#estabelecimento').load('equipamento.php?id_regiao='+$('#id_regiao').val());
 		        });
 		    });
     	</script>
+
 
     
     </head>
@@ -138,7 +146,7 @@
 	                                            <?php 
 												    $regiaoDao = new RegiaoDAO();
 													foreach ($regiaoDao->listar() as $regiao){
-														echo "<option value=".$regiao['id_regiao'].">". $regiao['numero_regiao'] ."-". utf8_encode($regiao['nome_regiao'])."</option>";
+														echo "<option value=".$regiao['id_regiao'].">". $regiao['numero_regiao'] ."-". utf8_decode($regiao['nome_regiao'])."</option>";
 													}
 			              						 ?>
 	                                        </select>
@@ -170,7 +178,7 @@
 	                                            }
 	                                            $estab_regiao = new EstabelecimentoDAO();
 	                                            foreach ($estab_regiao->pesquisarIdRegiao($id_regiao_usuario) as $estab_usuario){
-														echo "<option value=".$estab_usuario['id_estabelecimento'].">". utf8_encode($estab_usuario['nome_estabelecimento'])."</option>";
+														echo "<option value=".$estab_usuario['id_estabelecimento'].">". utf8_decode($estab_usuario['nome_estabelecimento'])."</option>";
 													}
 			              						 ?>
 	                                        </select>
@@ -318,7 +326,7 @@
                         
                         <div class="row">
                             <div class="col-lg-12">
-                                <input type="button" class="btn btn-primary" value="CANCELAR" accesskey="" onclick="window.location = 'homeEquipamento.php'">    
+                                <input type="button" class="btn btn-primary" value="CANCELAR" accesskey="" onclick="window.location = 'listaEquipamento.php'">    
                                 <input type="submit" class=" btn btn-primary" value="CADASTRAR">
                             </div>            
                         </div>                    

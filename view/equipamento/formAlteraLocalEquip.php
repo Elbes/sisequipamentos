@@ -63,7 +63,7 @@
         ?>
 
             <div class="panel panel-primary">
-                <div class="panel-heading">Editar Local do Equipamentoo</div>
+                <div class="panel-heading">Editar Local do Equipamento</div>
 
                 <div class="panel-body">
                   Atual Região do Equipamento:<?php echo "<b> ".utf8_encode($nome_reg)."</b>"; ?> <br />Atual Estabelecimento do Equipamento:<?php echo "<b> ".utf8_encode($nome_estab)."</b>"; ?><br /><br />
@@ -71,7 +71,7 @@
 						<input type="hidden" class="btn btn-primary" name="id_equipamento" value="<?php echo $id_equipamento?>">
                         <div class="row">
                         <?php if ($tipo_perfil == 'ADMG'){?>
-                        	<div class="col-md-4">
+                        	<div class="col-md-6">
                                 <div class="form-group">
                                     <label for="cargo">Nova Região</label>
                                     <select class="dropdown form-control" name="id_regiao" id="id_regiao" required title="Por Favor informe o Estabelecimento">
@@ -79,14 +79,14 @@
                                             <?php 
 											$regiaoDao = new RegiaoDAO();
 												foreach ($regiaoDao->listar() as $regiao){
-													echo "<option value=".$regiao['id_regiao'].">". $regiao['numero_regiao'] ."-". utf8_encode($regiao['nome_regiao'])."</option>";
+													echo "<option value=".$regiao['id_regiao'].">". $regiao['numero_regiao'] ."-". utf8_decode($regiao['nome_regiao'])."</option>";
 												}
 		              						 ?>
                                         </select>
                                 </div>    
                             </div>
                             
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="id_estabelecimento">Novo Estabelecimento</label>
                                     <div id="estabelecimento"></div>
@@ -111,7 +111,7 @@
                                             }
                                             $estab_regiao = new EstabelecimentoDAO();
                                             foreach ($estab_regiao->pesquisarIdRegiao($id_regiao_usuario) as $estab_usuario){
-													echo "<option value=".$estab_usuario['id_estabelecimento'].">". utf8_encode($estab_usuario['nome_estabelecimento'])."</option>";
+													echo "<option value=".$estab_usuario['id_estabelecimento'].">". utf8_decode($estab_usuario['nome_estabelecimento'])."</option>";
 												}
 		              						 ?>
                                         </select>

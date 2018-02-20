@@ -1,3 +1,4 @@
+
         <div class="container">
             
             <header class="toposdi">
@@ -40,7 +41,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse pull-left">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="/sisequipamentos/view/home.php">Home</a></li>
+                <li class="active"><a href="/view/home.php">Home</a></li>
                 <?php
                 if ($tipo_perfil == 'ADMG'){
                  ?>   
@@ -52,30 +53,40 @@
                                    <li role="separator" class="divider"></li>
         						   <li><a href="/sisequipamentos/view/tipo_estabelecimento/listaTipoEstabelecimento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Tipo de Estabelecimento" aria-hidden="true"></span> Tipo de Estabelecimento</a></li>
                                    <li role="separator" class="divider"></li>
-                                   <li><a href="/sisequipamentos/view/estabelecimento/listaEstabelecimento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Estabelecimento" aria-hidden="true"></span> Estabeleciemnto</a></li>
+                                   <li><a href="/sisequipamentos/view/estabelecimento/listaEstabelecimento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Estabelecimento" aria-hidden="true"></span> Estabelecimento</a></li>
         						   <li role="separator" class="divider"></li>
         						   <li><a href="/sisequipamentos/view/equipamento/listaEquipamento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Equipamento" aria-hidden="true"></span> Equipamento</a></li>
                                </ul>
                            </li>
                     
-                <?php 	} 	if ($tipo_perfil == 'NUCLEO'){  ?>
+                	<?php 	} 	if ($tipo_perfil == 'NUCLEO'){  ?>
                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
         							<li><a href="/sisequipamentos/view/equipamento/listaEquipamento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Equipamento" aria-hidden="true"></span> Equipamento</a></li>
                                 </ul>
                            </li>
-                <?php	}  ?>
-                		   <li class="dropdown">
+                	<?php	}  ?>
+                           
+                           <li class="dropdown">
                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manutenção <span class="caret"></span></a>
                                <ul class="dropdown-menu">
                                    <li><a href="/sisequipamentos/view/manutencao/listaManutencao.php"><span class="glyphicon glyphicon-search" title="Cadastrar Demanda" aria-hidden="true"></span> Manutenções Abertas</a></li>
+                               </ul>
+                           </li>
+                           
+                           <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                   <li><a href="/sisequipamentos/view/manutencao/formOpRelatorioManutencao.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Manutenções</a></li>
                                    <li role="separator" class="divider"></li>
-                                   <li><a href="#"><span class="glyphicon glyphicon-search" title="Pesquisar Demandas" aria-hidden="true"></span> Manutenções Fechadas</a></li>
+        						               <li><a href="/view/equipamento/formRelatorioEquip.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Equipamentos</a></li>
+                                   <li role="separator" class="divider"></li>
+                                   <li><a href="/sisequipamentos/view/usuario/formRelatorioUsuario.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Usuário</a></li>
+        						   
                                </ul>
                            </li>
                 
-                   <li><a href="#">Relatório</a></li>
                    <li><a href="#" onclick="swal({   title: 'Sair?', type: 'warning', text:'Tem certeza que deseja realmente Sair?',  showCancelButton: true,   confirmButtonColor: '#DD6B55',confirmButtonText: 'SAIR', cancelButtonText: 'CANCELAR', closeOnConfirm: false}, function(){window.location.href = '/sisequipamentos/view/logout.php';});">Encerrar Sessão</a></li>
                 
               </ul>
@@ -87,4 +98,3 @@
         <br> 
            
         </div>
-

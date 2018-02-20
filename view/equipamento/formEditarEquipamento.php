@@ -151,7 +151,7 @@
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <label>Estabelecimento Instalação</label>
-                                    <input type="text" class="form-control" required title="Estabeleciemnto" disabled value="<?php echo $num_estab." - ".$nome_estab; ?>">
+                                    <input type="text" class="form-control" required title="Estabeleciemnto" disabled value="<?php echo $num_estab." - ".utf8_decode($nome_estab); ?>">
                                 </div>
                             </div>        
 

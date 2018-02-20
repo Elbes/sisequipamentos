@@ -53,7 +53,7 @@
                                    <li role="separator" class="divider"></li>
         						   <li><a href="/view/tipo_estabelecimento/listaTipoEstabelecimento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Tipo de Estabelecimento" aria-hidden="true"></span> Tipo de Estabelecimento</a></li>
                                    <li role="separator" class="divider"></li>
-                                   <li><a href="/view/estabelecimento/listaEstabelecimento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Estabelecimento" aria-hidden="true"></span> Estabeleciemnto</a></li>
+                                   <li><a href="/view/estabelecimento/listaEstabelecimento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Estabelecimento" aria-hidden="true"></span> Estabelecimento</a></li>
         						   <li role="separator" class="divider"></li>
         						   <li><a href="/view/equipamento/listaEquipamento.php"><span class="glyphicon glyphicon-plus" title="Cadastrar Equipamento" aria-hidden="true"></span> Equipamento</a></li>
                                </ul>
@@ -82,7 +82,7 @@
                                    <li role="separator" class="divider"></li>
         						               <li><a href="/view/equipamento/formRelatorioEquip.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Equipamentos</a></li>
                                    <li role="separator" class="divider"></li>
-                                   <li><a href="/sisequipamentos/view/usuario/formRelatorioUsuario.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Usuário</a></li>
+                                   <li><a href="/view/usuario/formRelatorioUsuario.php"><span class="glyphicon glyphicon-download" title="" aria-hidden="true"></span> Usuário</a></li>
         						   
                                </ul>
                            </li>

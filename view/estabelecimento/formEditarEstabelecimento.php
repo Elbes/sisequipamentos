@@ -111,7 +111,7 @@
                                             <?php 
 												$tipoEstab= new TipoEstabDAO();
 												foreach ($tipoEstab->listar() as $estab){
-													echo "<option value=".$estab['id_tipo_estabelecimento'].">". $estab['tipo']."</option>";
+													echo "<option value=".$estab['id_tipo_estabelecimento'].">". utf8_decode($estab['tipo'])."</option>";
 												}
 		              						 ?>
                                         </select>
@@ -129,9 +129,9 @@
                                         <select class="dropdown form-control" name="id_regiao" required>
                                             <option value="<?php echo $id_regiao;?>"><?php echo utf8_decode(regEstab($id_regiao)); ?></option>
                                             <?php 
-											$regiaoDao = new RegiaoDAO();
+												$regiaoDao = new RegiaoDAO();
 												foreach ($regiaoDao->listar() as $regiao){
-													echo "<option value=".$regiao['id_regiao'].">". $regiao['numero_regiao'] ."-". utf8_encode($regiao['nome_regiao'])."</option>";
+													echo "<option value=".$regiao['id_regiao'].">". $regiao['numero_regiao'] ."-". utf8_decode($regiao['nome_regiao'])."</option>";
 												}
 		              						 ?>
                                         </select>
