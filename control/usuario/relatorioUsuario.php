@@ -27,6 +27,7 @@
 
 include_once '../../Model/session.php';
 include_once '../../Model/RegiaoDAO.php';
+include_once '../../Model/PerfilDAO.php';
 include_once '../../Model/UsuarioDAO.php';
 include_once '../../Model/EstabelecimentoDAO.php';
 include_once '../../Model/EquipamentoDAO.php';
@@ -69,16 +70,15 @@ if (PHP_SAPI == 'cli')
 	$objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true)
 	->setSize(18);
 	
-	$objPHPExcel->getActiveSheet()->SetCellValue('A2', "ID DO USUÁRIO")->getStyle('A2')->getFont()->setBold(true)->setSize(11);
-	$objPHPExcel->getActiveSheet()->SetCellValue('B2', "MATRÍCULA")->getStyle('B2')->getFont()->setBold(true)->setSize(11);
-	$objPHPExcel->getActiveSheet()->SetCellValue('C2', "NOME DO USUÁRIO")->getStyle('C2')->getFont()->setBold(true)->setSize(11);
-	$objPHPExcel->getActiveSheet()->SetCellValue('D2', "SOBRENOME")->getStyle('D2')->getFont()->setBold(true)->setSize(11);
-	$objPHPExcel->getActiveSheet()->SetCellValue('E2', "E-MAIL")->getStyle('E2')->getFont()->setBold(true)->setSize(11);
-	$objPHPExcel->getActiveSheet()->SetCellValue('F2', "SENHA")->getStyle('F2')->getFont()->setBold(true)->setSize(11);
-	$objPHPExcel->getActiveSheet()->SetCellValue('G2', "STATUS USUÁRIO")->getStyle('G2')->getFont()->setBold(true)->setSize(11);
-	$objPHPExcel->getActiveSheet()->SetCellValue('H2', "DATA CADASTRO")->getStyle('H2')->getFont()->setBold(true)->setSize(11);
-	$objPHPExcel->getActiveSheet()->SetCellValue('I2', "ESTABELECIMENTO")->getStyle('I2')->getFont()->setBold(true)->setSize(11);
-	$objPHPExcel->getActiveSheet()->SetCellValue('J2', "PERFIL")->getStyle('J2')->getFont()->setBold(true)->setSize(11);
+	//$objPHPExcel->getActiveSheet()->SetCellValue('A2', "ID DO USUÁRIO")->getStyle('A2')->getFont()->setBold(true)->setSize(11);
+	$objPHPExcel->getActiveSheet()->SetCellValue('A2', "MATRÍCULA")->getStyle('A2')->getFont()->setBold(true)->setSize(11);
+	$objPHPExcel->getActiveSheet()->SetCellValue('B2', "NOME DO USUÁRIO")->getStyle('B2')->getFont()->setBold(true)->setSize(11);
+	$objPHPExcel->getActiveSheet()->SetCellValue('C2', "E-MAIL")->getStyle('C2')->getFont()->setBold(true)->setSize(11);
+	//$objPHPExcel->getActiveSheet()->SetCellValue('E2', "SENHA")->getStyle('E2')->getFont()->setBold(true)->setSize(11);
+	$objPHPExcel->getActiveSheet()->SetCellValue('D2', "STATUS USUÁRIO")->getStyle('D2')->getFont()->setBold(true)->setSize(11);
+	$objPHPExcel->getActiveSheet()->SetCellValue('E2', "DATA CADASTRO")->getStyle('E2')->getFont()->setBold(true)->setSize(11);
+	$objPHPExcel->getActiveSheet()->SetCellValue('F2', "ESTABELECIMENTO")->getStyle('F2')->getFont()->setBold(true)->setSize(11);
+	$objPHPExcel->getActiveSheet()->SetCellValue('G2', "PERFIL")->getStyle('G2')->getFont()->setBold(true)->setSize(11);
 
 	
 	try{
@@ -105,16 +105,15 @@ if (PHP_SAPI == 'cli')
 				}
 				
 	            //RECEBE OS DADOS E DEFINE A LARGURA DAS COLUNAS
-			    $objPHPExcel->getActiveSheet()->SetCellValue('A'.$cont,$key['id_usuario'])->getColumnDimension('A')->setAutoSize(true);
-				$objPHPExcel->getActiveSheet()->SetCellValue('B'.$cont,$key['matricula'])->getColumnDimension('B')->setAutoSize(true);
-				$objPHPExcel->getActiveSheet()->SetCellValue('C'.$cont,utf8_decode($key['nome_usuario']))->getColumnDimension('C')->setWidth(12);
-				$objPHPExcel->getActiveSheet()->SetCellValue('D'.$cont,utf8_decode($key['sobrenome_usuario']))->getColumnDimension('D')->setAutoSize(true);
-				$objPHPExcel->getActiveSheet()->SetCellValue('E'.$cont,$key['email'])->getColumnDimension('E')->setAutoSize(true);
-				$objPHPExcel->getActiveSheet()->SetCellValue('F'.$cont,$key['senha'])->getColumnDimension('F')->setAutoSize(true);
-				$objPHPExcel->getActiveSheet()->SetCellValue('G'.$cont,$key['status_usuario'])->getColumnDimension('G')->setAutoSize(true);
-				$objPHPExcel->getActiveSheet()->SetCellValue('H'.$cont,$key['data_cadastro'])->getColumnDimension('H')->setAutoSize(true);
-				$objPHPExcel->getActiveSheet()->SetCellValue('I'.$cont,utf8_decode($nome_estabelecimento))->getColumnDimension('I')->setAutoSize(true);
-				$objPHPExcel->getActiveSheet()->SetCellValue('J'.$cont,utf8_decode($nome_perfil))->getColumnDimension('J')->setAutoSize(true);
+			    //$objPHPExcel->getActiveSheet()->SetCellValue('A'.$cont,$key['id_usuario'])->getColumnDimension('A')->setAutoSize(true);
+				$objPHPExcel->getActiveSheet()->SetCellValue('A'.$cont,$key['matricula'])->getColumnDimension('A')->setAutoSize(true);
+				$objPHPExcel->getActiveSheet()->SetCellValue('B'.$cont,utf8_decode($key['nome_usuario'] . " " . $key['sobrenome_usuario']))->getColumnDimension('B')->setWidth(12);
+				$objPHPExcel->getActiveSheet()->SetCellValue('C'.$cont,$key['email'])->getColumnDimension('C')->setAutoSize(true);
+				//$objPHPExcel->getActiveSheet()->SetCellValue('E'.$cont,$key['senha'])->getColumnDimension('E')->setAutoSize(true);
+				$objPHPExcel->getActiveSheet()->SetCellValue('D'.$cont,$key['status_usuario'])->getColumnDimension('D')->setAutoSize(true);
+				$objPHPExcel->getActiveSheet()->SetCellValue('E'.$cont,$key['data_cadastro'])->getColumnDimension('E')->setAutoSize(true);
+				$objPHPExcel->getActiveSheet()->SetCellValue('F'.$cont,utf8_decode($nome_estabelecimento))->getColumnDimension('F')->setAutoSize(true);
+				$objPHPExcel->getActiveSheet()->SetCellValue('G'.$cont,utf8_decode($nome_perfil))->getColumnDimension('G')->setAutoSize(true);
 
 				
 				$cont++;
