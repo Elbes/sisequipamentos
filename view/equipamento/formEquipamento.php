@@ -5,14 +5,14 @@
         <?php include '../constant.php';?>
         <link href="../css/bootstrap.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
-        <script src="../css/dist/sweetalert.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="../css/dist/sweetalert.css">
+        <script src="../css/dist/sweetalert.min.js" type="text/javascript" ></script>
+        <link href="../css/dist/sweetalert.css" rel="stylesheet">
         <!--<script src="js/jquery.js" type="text/javascript"></script>-->
         <script src="../js/jquery-1.5.2.min.js" type="text/javascript"></script>
         <script src="../js/jquery-1.11.3.min.js" type="text/javascript"></script>
-        <script src="../js/jquery.maskedinput.js"></script>
-        <script type="text/javascript" src="../js/jquery.maskmoney.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script> 
+        <script src="../js/jquery.maskedinput.js" type="text/javascript" ></script>
+        <script src="../js/jquery.maskMoney.min.js" type="text/javascript" ></script>
+        <script src="../js/bootstrap.min.js" type="text/javascript" ></script> 
         <link href="../imagens/bisturi.png" rel="shortcut icon" type="image/x-icon" /> 
           <script>
             jQuery(function ($) {
@@ -37,7 +37,7 @@
         <script type="text/javascript">
 		    $(document).ready(function(){
 		        $('#id_regiao').change(function(){
-		            $('#estabelecimento').load('equipamento.php?id_regiao='+$('#id_regiao').val());
+		            $('#estab').load('equipamento.php?id_regiao='+$('#id_regiao').val());
 		        });
 		    });
     	</script>
@@ -156,7 +156,7 @@
 	                            <div class="col-md-5">
 	                                <div class="form-group">
 	                                    <label for="id_estabelecimento">Estabelecimento de Instalação</label>
-	                                    <div id="estabelecimento"></div>
+	                                    <div id="estab"></div>
 	                                </div>    
 	
 	                            </div>
