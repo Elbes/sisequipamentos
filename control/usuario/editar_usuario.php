@@ -25,8 +25,8 @@
               $obj = new Usuario();
               
               $obj->setMatricula($_REQUEST["matricula"]);
-              $obj->setNome_usuario($_REQUEST["nome_usuario"]);
-              $obj->setSobrenome_usuario($_REQUEST["sobrenome_usuario"]);
+              $obj->setNome_usuario(utf8_encode($_REQUEST["nome_usuario"]));
+              $obj->setSobrenome_usuario(utf8_encode($_REQUEST["sobrenome_usuario"]));
               $obj->setEmail($_REQUEST["email"]);
               $obj->setSenha(md5($_REQUEST["senha"]));
               $obj->setStatus_usuario($_REQUEST["status_usuario"]);

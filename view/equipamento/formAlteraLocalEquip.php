@@ -66,7 +66,7 @@
                 <div class="panel-heading">Editar Local do Equipamento</div>
 
                 <div class="panel-body">
-                  Atual Região do Equipamento:<?php echo "<b> ".utf8_encode($nome_reg)."</b>"; ?> <br />Atual Estabelecimento do Equipamento:<?php echo "<b> ".utf8_encode($nome_estab)."</b>"; ?><br /><br />
+                  Atual Região do Equipamento:<?php echo "<b> ".utf8_decode($nome_reg)."</b>"; ?> <br />Atual Estabelecimento do Equipamento:<?php echo "<b> ".utf8_decode($nome_estab)."</b>"; ?><br /><br />
                     <form action="../../control/equipamento/editar_local_equip.php" method="post">
 						<input type="hidden" class="btn btn-primary" name="id_equipamento" value="<?php echo $id_equipamento?>">
                         <div class="row">

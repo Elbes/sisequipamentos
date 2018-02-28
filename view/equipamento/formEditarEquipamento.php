@@ -157,7 +157,7 @@
 
                             <div class="col-md-5">
                                 <div class="form-group">
-                               <a data-toggle="modal"  class="btn btn-primary" href="formAlteraLocalEquip.php?id_equipamento=<?php echo  $id_equipamento?>" data-target="#modalEstab" title="Alterar o Estabelecimento"><i class="icon-zoom-in"></i> Alterar o Estabelecimento</a>
+                               <a data-toggle="modal"  class="btn btn-primary" href="formAlteraLocalEquip.php?id_equipamento=<?php echo $id_equipamento?>" data-target="#modalEstab" title="Alterar o Estabelecimento"><i class="icon-zoom-in"></i> Alterar o Estabelecimento</a>
                                 </div>    
                             </div>
                          </div>       

@@ -49,8 +49,8 @@
         
         foreach ($dao->pesqId($id_usuario) as $usuario){
         	$matricula = $usuario['matricula'];
-        	$nome_usuario = utf8_encode($usuario['nome_usuario']);
-        	$sobrenome_usuario = utf8_encode($usuario['sobrenome_usuario']);
+        	$nome_usuario = utf8_decode($usuario['nome_usuario']);
+        	$sobrenome_usuario = utf8_decode($usuario['sobrenome_usuario']);
         	$id_perfil = $usuario['id_perfil'];
         	$email = $usuario['email'];
         	$id_estabelecimento = utf8_encode($usuario['id_estabelecimento']);
@@ -59,10 +59,10 @@
         	
         	foreach ($daoEst->pesquisar($id_estabelecimento) as $est){
         		$id_regiao = $est['id_regiao'];
-        		$nome_estab = utf8_encode($est['nome_estabelecimento']);
+        		$nome_estab = utf8_decode($est['nome_estabelecimento']);
         	}
         	foreach ($daoReg->pesquisar($id_regiao) as $reg){
-        		$nome_reg = utf8_encode($reg['nome_regiao']);
+        		$nome_reg = utf8_decode($reg['nome_regiao']);
         		$num_reg = $reg['numero_regiao'];
         	}
         	

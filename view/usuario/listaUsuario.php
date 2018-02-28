@@ -54,8 +54,8 @@
                             foreach ($obj->listar() as $key){
                             	$id_usuario = $key['id_usuario'];
                             	$matricula = $key['matricula'];
-                            	$nome = $key['nome_usuario'];
-                            	$sobrenome_usuario = $key['sobrenome_usuario'];
+                            	$nome = utf8_decode($key['nome_usuario']);
+                            	$sobrenome_usuario = utf8_decode($key['sobrenome_usuario']);
                             	$email = $key['email'];
                             	$id_estabelecimento = $key['id_estabelecimento'];
                             	$status = $key['status_usuario'];

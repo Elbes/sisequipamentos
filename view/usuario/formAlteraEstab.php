@@ -75,7 +75,7 @@
                                 <div class="form-group">
 
                                     <label for="Nome do Usuário">Nome</label>
-                                    <input type="text" class="form-control" required readonly name="nome_usuario" value="<?php echo utf8_encode($nome_usuario).' '.utf8_encode($sobrenome_usuario);?>" placeholder="Nome">
+                                    <input type="text" class="form-control" required readonly name="nome_usuario" value="<?php echo utf8_decode($nome_usuario).' '.utf8_decode($sobrenome_usuario);?>" placeholder="Nome">
                                 </div>
                             </div>
 
@@ -87,7 +87,7 @@
                                             <?php 
 											$regiaoDao = new RegiaoDAO();
 												foreach ($regiaoDao->listar() as $regiao){
-													echo "<option value=".$regiao['id_regiao'].">". $regiao['numero_regiao'] ."-". utf8_encode($regiao['nome_regiao'])."</option>";
+													echo "<option value=".$regiao['id_regiao'].">". $regiao['numero_regiao'] ."-". utf8_decode($regiao['nome_regiao'])."</option>";
 												}
 		              						 ?>
                                         </select>

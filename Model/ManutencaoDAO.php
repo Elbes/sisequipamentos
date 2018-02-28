@@ -188,7 +188,7 @@ class ManutencaoDAO extends Conexao{
 	 		}
 	 	}
 	 	
-	 	public function relatorioManutPeiodo($data_inicial, $data_final) {
+	 	public function relatorioManutPeriodo($data_inicial, $data_final) {
 	 		try {
 	 			$this->conex->beginTransaction();
 	 			$stmt = $this->conex->prepare("SELECT * FROM tb_manutencao WHERE dhs_abertura BETWEEN '{$data_inicial}' AND '{$data_final}'");
