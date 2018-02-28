@@ -37,7 +37,8 @@
         <script type="text/javascript">
 		    $(document).ready(function(){
 		        $('#id_regiao').change(function(){
-		            $('#estab').load('equipamento.php?id_regiao='+$('#id_regiao').val());
+			         console.info("entrou");
+		            $('#estabelecimento').load('equipamento.php?id_regiao='+$('#id_regiao').val());
 		        });
 		    });
     	</script>
@@ -156,7 +157,7 @@
 	                            <div class="col-md-5">
 	                                <div class="form-group">
 	                                    <label for="id_estabelecimento">Estabelecimento de Instalação</label>
-	                                    <div id="estab"></div>
+	                                    <div id="estabelecimento"></div>
 	                                </div>    
 	
 	                            </div>
