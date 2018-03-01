@@ -242,8 +242,8 @@
                                    <div class="form-group">
                                     <label>Recursos</label><br />
                                     <label class="radio-inline"><input type="radio" name="recursos" value="Próprio">Próprio</label>
-									<label class="radio-inline"><input type="radio" name="recursos" value="Comodato">Comodato</label>
-									<label class="radio-inline"><input type="radio" name="recursos" value="Doação">Doação</label>
+                  									<label class="radio-inline"><input type="radio" name="recursos" value="Comodato">Comodato</label>
+                  									<label class="radio-inline"><input type="radio" name="recursos" value="Doação">Doação</label>
                                   </div>
                              </div>
                                
@@ -256,23 +256,45 @@
                         </div> 
                         
                         <div class="row">
-                        	<div class="col-md-5">
+                        	<div class="col-md-3">
                                    <div class="form-group">
                                     <label>Vencimento da garantia </label>
-                                    <input type="date" class="form-control" title="Informe da tada de vencimento da garantia"  name="vencimento_garantia">
+                                    <input type="date" class="form-control" title="Informe da data de vencimento da garantia"  name="vencimento_garantia">
                                   </div>
                              </div> 
-                             
-                         	<div class="col-md-5">
+                             <div class="col-md-2">
                                    <div class="form-group">
-                                    <label>Contrato de Manutenção</label><br />
-                                    <label class="radio-inline"><input type="radio" name="contrato_manutencao" value="Sim">Sim</label>
-									<label class="radio-inline"><input type="radio" name="contrato_manutencao" value="Não">Não</label>
+                                    <label>Vencida? </label><br>
+                                    <label class="checkbox-inline"><input type="checkbox" class="checkbox" id="garantia_vencida" value="" name="garantia_vencida">Sim</label>
                                   </div>
                              </div>
-                        </div> 
+
+                             <!-- Validação do vencimento da garantia-->
+                            
+                            <script type="text/javascript">
+                              $(document).ready(function($) {
+                                $("input[name='garantia_vencida']").click(function(){
+                                    if ($(this).is(':checked')) {
+                                        $("input[name='vencimento_garantia']").attr("disabled", true);              
+                                    }
+                                    else if ($(this).not(':checked')) {                                                           
+                                      $("input[name='vencimento_garantia']").attr("disabled", false);
+                                      //$("input[name='garantia_vencida']").attr("disabled", false);                            
+                                    }           
+                                }); 
+                              });
+                            </script>
+
+                             <div class="col-md-5">
+                              <div class="form-group">
+                                    <label>Contrato de Manutenção</label><br />
+                                    <label class="radio-inline"><input type="radio" name="contrato_manutencao" value="Sim">Sim</label>
+                                    <label class="radio-inline"><input type="radio" name="contrato_manutencao" value="Não">Não</label>
+                              </div>
+                          </div> 
+                        </div>
                         
-						<div class="row">
+						          <div class="row">
                         	<div class="col-md-5">
                                    <div class="form-group">
                                     <label>Nº da nota fiscal</label>
