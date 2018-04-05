@@ -44,6 +44,7 @@
               $obj->setRecursos(utf8_encode($_REQUEST['recursos']));
               $obj->setValorAquisicao($_REQUEST['valor_aquisicao']);
               $obj->setVencimentoGarantia($_REQUEST['vencimento_garantia']);
+              $obj->setGarantiaVencida($_REQUEST['garantia_vencida']);
               $obj->setContratoManutencao(utf8_encode($_REQUEST['contrato_manutencao']));
               $obj->setNumeroNotaFiscal($_REQUEST['numero_nota_fiscal']);
               $obj->setDataAquisicao($_REQUEST['data_aquisicao']);

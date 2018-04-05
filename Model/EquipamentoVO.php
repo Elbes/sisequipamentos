@@ -133,6 +133,12 @@ class EquipamentoVO {
 	public function setVencimentoGarantia($valor) {
 		$this->vencimento_garantia = $valor;
 	}
+	public function getGarantiaVencida() {
+		return $this->garantia_vencida;
+	}
+	public function setGarantiaVencida($valor) {
+		$this->garantia_vencida = $valor;
+	}
 	public function getContratoManutencao() {
 		return $this->contrato_manutencao;
 	}

@@ -265,7 +265,7 @@
                              <div class="col-md-2">
                                    <div class="form-group">
                                     <label>Vencida? </label><br>
-                                    <label class="checkbox-inline"><input type="checkbox" class="checkbox" id="garantia_vencida" value="" name="garantia_vencida">Sim</label>
+                                    <label class="checkbox-inline"><input type="checkbox" class="checkbox" id="garantia_vencida" value="sim" name="garantia_vencida">Sim</label>
                                   </div>
                              </div>
 

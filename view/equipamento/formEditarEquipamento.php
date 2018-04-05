@@ -229,12 +229,30 @@
                         </div> 
                         
                         <div class="row">
-                        	<div class="col-md-5">
+                        	<div class="col-md-3">
                                    <div class="form-group">
                                     <label>Vencimento da garantia </label>
-                                    <input type="date" class="form-control" title="Informe da tada de vencimento da garantia" value="<?php echo $equip['vencimento_garantia'];?>" name="vencimento_garantia">
+                                    <input type="date" class="form-control" title="Informe da tada de vencimento da garantia" value="<?php echo $equip['vencimento_garantia'];?>" name="vencimento_garantia" <?php if($equip['garantia_vencida']=='sim'){echo 'disabled';}?>>
                                   </div>
-                             </div> 
+                             </div>
+                             <div class="col-md-2">
+                                   <div class="form-group">
+                                    <label>Vencida? </label><br>
+                                    <label class="checkbox-inline"><input type="checkbox" class="checkbox" id="garantia_vencida" value="sim" name="garantia_vencida" <?php if($equip['garantia_vencida']=='sim'){echo 'checked';}?>>Sim</label>
+                                  </div>
+                             </div>
+                             <script type="text/javascript">
+                              $(document).ready(function($) {
+                                $("input[name='garantia_vencida']").click(function(){
+                                    if ($(this).is(':checked')) {
+                                        $("input[name='vencimento_garantia']").attr("disabled", true);              
+                                    }
+                                    else if ($(this).not(':checked')) {                                           
+                                      $("input[name='vencimento_garantia']").attr("disabled", false);                      
+                                    }           
+                                }); 
+                              });
+                            </script> 
                              
                          	<div class="col-md-5">
                                    <div class="form-group">

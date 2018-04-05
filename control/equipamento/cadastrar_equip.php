@@ -61,6 +61,7 @@
               $equip->setRecursos(utf8_encode($_REQUEST['recursos']));
               $equip->setValorAquisicao($_REQUEST['valor_aquisicao']);
               $equip->setVencimentoGarantia($_REQUEST['vencimento_garantia']);
+              $equip->setGarantiaVencida($_REQUEST['garantia_vencida']);
               $equip->setContratoManutencao(utf8_encode($_REQUEST['contrato_manutencao']));
               $equip->setNumeroNotaFiscal($_REQUEST['numero_nota_fiscal']);
               $equip->setDataAquisicao($_REQUEST['data_aquisicao']);
