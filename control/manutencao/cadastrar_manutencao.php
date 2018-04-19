@@ -38,6 +38,7 @@
               $obj->setDataEnvio($_REQUEST['data_envio']);
               $obj->setTelefoneManutencao($_REQUEST['telefone_manutencao']);
               $obj->setContratoManutencao($_REQUEST['contrato_manutencao']);
+              $obj->setNumContratoManutencao($_REQUEST['num_contrato_manutencao']);
               $obj->setGrauNecessidade($_REQUEST['grau_necessidade']);
               $obj->setOrigemFalha(utf8_encode($_REQUEST['origem_falha']));
               $obj->setObservacaoManutencao(utf8_encode($_REQUEST['observacao_manutencao']));

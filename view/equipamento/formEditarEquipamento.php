@@ -154,7 +154,7 @@
                                     <input type="text" class="form-control" required title="Estabeleciemnto" disabled value="<?php echo $num_estab." - ".utf8_decode($nome_estab); ?>">
                                 </div>
                             </div>        
-
+                            <br>
                             <div class="col-md-5">
                                 <div class="form-group">
                                <a data-toggle="modal"  class="btn btn-primary" href="formAlteraLocalEquip.php?id_equipamento=<?php echo $id_equipamento?>" data-target="#modalEstab" title="Alterar o Estabelecimento"><i class="icon-zoom-in"></i> Alterar o Estabelecimento</a>
@@ -214,9 +214,9 @@
                          	<div class="col-md-5">
                                    <div class="form-group">
                                     <label>Recursos</label><br />
-                                    <label class="radio-inline"><input type="radio" name="recursos" value="Próprio" <?php if($equip['recursos']=='Próprio'){echo 'checked';}?>>Próprio</label>
-									<label class="radio-inline"><input type="radio" name="recursos" value="Comodato" <?php if($equip['recursos']=='Comodato'){echo 'checked';}?>>Comodato</label>
-									<label class="radio-inline"><input type="radio" name="recursos" value="Doação" <?php if($equip['recursos']=='Doação'){echo 'checked';}?>>Doação</label>
+                                    <label class="radio-inline"><input type="radio" name="recursos" value="Próprio" <?php if(utf8_decode($equip['recursos']) =='Próprio'){echo 'checked';}?>>Próprio</label>
+									<label class="radio-inline"><input type="radio" name="recursos" value="Comodato" <?php if(utf8_decode($equip['recursos'])=='Comodato'){echo 'checked';}?>>Comodato</label>
+									<label class="radio-inline"><input type="radio" name="recursos" value="Doação" <?php if(utf8_decode($equip['recursos'])=='Doação'){echo 'checked';}?>>Doação</label>
                                   </div>
                              </div>
                                
@@ -254,14 +254,28 @@
                               });
                             </script> 
                              
-                         	<div class="col-md-5">
-                                   <div class="form-group">
+                         	<div class="col-md-3">
+                              <div class="form-group">
                                     <label>Contrato de Manutenção</label><br />
-                                    <label class="radio-inline"><input type="radio" name="contrato_manutencao" value="Sim" <?php if($equip['contrato_manutencao']=='Sim'){echo 'checked';}?>>Sim</label>
-									<label class="radio-inline"><input type="radio" name="contrato_manutencao" value="Não" <?php if($equip['contrato_manutencao']=='Não'){echo 'checked';}?>>Não</label>
-                                  </div>
-                             </div>
-                        </div> 
+                                    <label class="radio-inline"><input type="radio" name="contrato_manutencao" value="Sim"<?php if($equip['contrato_manutencao']=='Sim'){echo 'checked';}?>>Sim</label>
+                                    <label class="radio-inline"><input type="radio" name="contrato_manutencao" value="Não"<?php if($equip['contrato_manutencao']=='Não'){echo 'checked';}?>>Não</label>
+                              </div>
+                            </div>
+                            <div class="col-md-2 ncont" <?php if($equip['contrato_manutencao']=='Não'){echo 'style="display:none;"';}?>>
+                              <label>Número</label>
+                              <input type="text" name="num_contrato_manutencao" placeholder="Nº Contrato Manutenção" class="form-control" >
+                            </div> 
+                        </div>
+
+                        <!-- Validação do campo Número contrato de Manutenção -->
+                        
+                        <script type="text/javascript">
+                              $(document).ready(function($) {
+                                $("input[name='contrato_manutencao']").click(function(){
+                                    this.value === 'Sim' ? $("div.ncont").show() : $("div.ncont").hide();
+                                });
+                              });
+                            </script>
                         
 						<div class="row">
                         	<div class="col-md-5">

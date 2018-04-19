@@ -17,10 +17,10 @@ class ManutencaoDAO extends Conexao{
  		try {
  			$this->conex->beginTransaction();
 			$query = $this->conex->prepare("INSERT INTO tb_manutencao (id_manutencao,id_equipamento,servico_solicitado,numero_chamado,local_falha,
-					                       acessorios,local_manutencao,data_envio,telefone_manutencao,contrato_manutencao,grau_necessidade,
+					                       acessorios,local_manutencao,data_envio,telefone_manutencao,contrato_manutencao,num_contrato_manutencao,grau_necessidade,
 					                       origem_falha,origem_falha_outro,observacao_manutencao, previsao_entrega, id_usuario_abertura,dhs_abertura, status_manutencao)
 					                       VALUES (null,:id_equipamento,:servico_solicitado,:numero_chamado,:local_falha,:acessorios,:local_manutencao,
-					                       :data_envio,:telefone_manutencao,:contrato_manutencao,:grau_necessidade,:origem_falha,
+					                       :data_envio,:telefone_manutencao,:contrato_manutencao,:num_contrato_manutencao,:grau_necessidade,:origem_falha,
 					                       :origem_falha_outro,:observacao_manutencao,:previsao_entrega,:id_usuario_abertura,:dhs_abertura, :status_manutencao)");
 
 			$valores = array(id_equipamento		   =>$manut->getIdEquipamento(),
@@ -32,6 +32,7 @@ class ManutencaoDAO extends Conexao{
 							data_envio			   =>$manut->getDataEnvio(),
 							telefone_manutencao    =>$manut->getTelefoneManutencao(),
 							contrato_manutencao    =>$manut->getContratoManutencao(),
+							num_contrato_manutencao =>$manut->getNumContratoManutencao(),
 							grau_necessidade       =>$manut->getGrauNecessidade(),
 							origem_falha           =>$manut->getOrigemFalha(),
 							origem_falha_outro     =>$manut->getOrigemFalhaOutro(),

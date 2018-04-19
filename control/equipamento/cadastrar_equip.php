@@ -58,14 +58,15 @@
               $equip->setRamalSetor($_REQUEST['ramal_setor']);
               $equip->setAssistenciaTec(utf8_encode($_REQUEST['assistencia_tec']));
               $equip->setTelAssistenciaTec($_REQUEST['tel_assistencia_tec']);
-              $equip->setRecursos(utf8_encode($_REQUEST['recursos']));
+              $equip->setRecursos($_REQUEST['recursos']);
               $equip->setValorAquisicao($_REQUEST['valor_aquisicao']);
               $equip->setVencimentoGarantia($_REQUEST['vencimento_garantia']);
               $equip->setGarantiaVencida($_REQUEST['garantia_vencida']);
-              $equip->setContratoManutencao(utf8_encode($_REQUEST['contrato_manutencao']));
+              $equip->setContratoManutencao($_REQUEST['contrato_manutencao']);
+              $equip->setNumContratoManutencao($_REQUEST['num_contrato_manutencao']);
               $equip->setNumeroNotaFiscal($_REQUEST['numero_nota_fiscal']);
               $equip->setDataAquisicao($_REQUEST['data_aquisicao']);
-              $equip->setManualTecnico(utf8_encode($_REQUEST['manual_tecnico']));
+              $equip->setManualTecnico($_REQUEST['manual_tecnico']);
               $equip->setTensaoEquip($_REQUEST['tensao_equip']);
               $equip->setPotenciaEquip($_REQUEST['potencia_equip']);
               $equip->setMaterialEntregue(utf8_encode($_REQUEST['material_entregue']));

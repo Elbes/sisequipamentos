@@ -285,14 +285,27 @@
                               });
                             </script>
 
-                             <div class="col-md-5">
+                            <div class="col-md-3">
                               <div class="form-group">
                                     <label>Contrato de Manutenção</label><br />
                                     <label class="radio-inline"><input type="radio" name="contrato_manutencao" value="Sim">Sim</label>
                                     <label class="radio-inline"><input type="radio" name="contrato_manutencao" value="Não">Não</label>
                               </div>
-                          </div> 
+                            </div>
+                            <div class="col-md-2 ncont">
+                              <?php ?>
+                              <label>Número</label>
+                              <input type="text" name="num_contrato_manutencao" placeholder="Nº Contrato Manutenção" class="form-control">
+                            </div> 
                         </div>
+                        <script type="text/javascript">
+                          $(document).ready(function($) {
+                            $("input[name='contrato_manutencao']").click(function(){
+                              this.value === 'Sim' ? $("div.ncont").show() : $("div.ncont").hide();
+                            });
+                          });
+                        </script>
+                        <!-- Validação campo Numero de Contrato Manutenção --> 
                         
 						          <div class="row">
                         	<div class="col-md-5">
@@ -314,7 +327,7 @@
                         	<div class="col-md-5">
                                 <div class="form-group">
                                     <label>Possui Manual técnico?</label>
-									<select class="dropdown form-control" name="manual_tecnico" title="Informe se possui manual técnico">
+									                  <select class="dropdown form-control" name="manual_tecnico" title="Informe se possui manual técnico">
                                         <option value="">Selecione...</option>
                                         <option value="Sim">Sim</option>
                                         <option value="Não">Não</option>

@@ -19,38 +19,39 @@ class EquipamentoDAO extends Conexao{
 			$query = $this->conex->prepare("INSERT INTO tb_equipamento (id_equipamento,nome_equipamento,num_patrimonio,num_serie,
 					                       fabricante,modelo_equip,marca_equip,executor_contrato,setor_instalacao,responsavel_setor,
 					                       telefone_setor,ramal_setor,assistencia_tec,tel_assistencia_tec,recursos,valor_aquisicao,
-					                       vencimento_garantia,garantia_vencida,contrato_manutencao,numero_nota_fiscal,data_aquisicao,manual_tecnico,tensao_equip,potencia_equip,material_entregue,dhs_cadastro,id_estabelecimento,id_usuario_cadastro)
+					                       vencimento_garantia,garantia_vencida,contrato_manutencao,num_contrato_manutencao,numero_nota_fiscal,data_aquisicao,manual_tecnico,tensao_equip,potencia_equip,material_entregue,dhs_cadastro,id_estabelecimento,id_usuario_cadastro)
 					                       VALUES (null,:nome_equipamento,:num_patrimonio,:num_serie,:fabricante,:modelo_equip,:marca_equip,
 					                       :executor_contrato,:setor_instalacao,:responsavel_setor,:telefone_setor,:ramal_setor,
-					                       :assistencia_tec,:tel_assistencia_tec,:recursos,:valor_aquisicao,:vencimento_garantia,:garantia_vencida,:contrato_manutencao,:numero_nota_fiscal,:data_aquisicao,:manual_tecnico,:tensao_equip,:potencia_equip,:material_entregue,:dhs_cadastro,:id_estabelecimento,:id_usuario_cadastro)");
+					                       :assistencia_tec,:tel_assistencia_tec,:recursos,:valor_aquisicao,:vencimento_garantia,:garantia_vencida,:contrato_manutencao,:num_contrato_manutencao,:numero_nota_fiscal,:data_aquisicao,:manual_tecnico,:tensao_equip,:potencia_equip,:material_entregue,:dhs_cadastro,:id_estabelecimento,:id_usuario_cadastro)");
 			 
-			$valores = array(nome_equipamento    =>$equip->getNomeEquipamento(),
-							num_patrimonio		 =>$equip->getNumPatrimonio(),
-							num_serie			 =>$equip->getNumSerie(),
-							fabricante			 =>$equip->getFabricante(),
-							modelo_equip		 =>$equip->getModeloEquip(),
-							marca_equip			 =>$equip->getMarcaEquip(),
-							executor_contrato    =>$equip->getExecutorContrato(),
-							setor_instalacao     =>$equip->getSetorInstalacao(),
-							responsavel_setor    =>$equip->getResponsavelSetor(),
-							telefone_setor       =>$equip->getTelefoneSetor(),
-							ramal_setor			 =>$equip->getRamalSetor(),
-							assistencia_tec		 =>$equip->getAssistenciaTec(),
-							tel_assistencia_tec  =>$equip->getTelAssistenciaTec(),
-							recursos			 =>$equip->getRecursos(),
-							valor_aquisicao      =>$equip->getValorAquisicao(),
-							vencimento_garantia  =>$equip->getVencimentoGarantia(),
-							garantia_vencida	 =>$equip->getGarantiaVencida(),
-							contrato_manutencao  =>$equip->getContratoManutencao(),
-							numero_nota_fiscal   =>$equip->getNumeroNotaFiscal(),
-							data_aquisicao       =>$equip->getDataAquisicao(),
-							manual_tecnico       =>$equip->getManualTecnico(),
-							tensao_equip         =>$equip->getTensaoEquip(),
-							potencia_equip       =>$equip->getPotenciaEquip(),
-							material_entregue    =>$equip->getMaterialEntregue(),
-							dhs_cadastro         =>$equip->getDhsCadastro(),
-							id_estabelecimento   =>$equip->getIdEstabelecimento(),
-							id_usuario_cadastro  =>$equip->getIdUsuarioCadastro());
+			$valores = array(nome_equipamento    	=>$equip->getNomeEquipamento(),
+							num_patrimonio		 	=>$equip->getNumPatrimonio(),
+							num_serie			 	=>$equip->getNumSerie(),
+							fabricante			 	=>$equip->getFabricante(),
+							modelo_equip		 	=>$equip->getModeloEquip(),
+							marca_equip			 	=>$equip->getMarcaEquip(),
+							executor_contrato    	=>$equip->getExecutorContrato(),
+							setor_instalacao     	=>$equip->getSetorInstalacao(),
+							responsavel_setor    	=>$equip->getResponsavelSetor(),
+							telefone_setor       	=>$equip->getTelefoneSetor(),
+							ramal_setor			 	=>$equip->getRamalSetor(),
+							assistencia_tec		 	=>$equip->getAssistenciaTec(),
+							tel_assistencia_tec  	=>$equip->getTelAssistenciaTec(),
+							recursos			 	=>$equip->getRecursos(),
+							valor_aquisicao      	=>$equip->getValorAquisicao(),
+							vencimento_garantia  	=>$equip->getVencimentoGarantia(),
+							garantia_vencida	 	=>$equip->getGarantiaVencida(),
+							contrato_manutencao  	=>$equip->getContratoManutencao(),
+							num_contrato_manutencao =>$equip->getNumContratoManutencao(),
+							numero_nota_fiscal   	=>$equip->getNumeroNotaFiscal(),
+							data_aquisicao       	=>$equip->getDataAquisicao(),
+							manual_tecnico       	=>$equip->getManualTecnico(),
+							tensao_equip         	=>$equip->getTensaoEquip(),
+							potencia_equip       	=>$equip->getPotenciaEquip(),
+							material_entregue    	=>$equip->getMaterialEntregue(),
+							dhs_cadastro         	=>$equip->getDhsCadastro(),
+							id_estabelecimento   	=>$equip->getIdEstabelecimento(),
+							id_usuario_cadastro  	=>$equip->getIdUsuarioCadastro());
 	
 		
 	 			$query->execute($valores);
@@ -71,7 +72,7 @@ class EquipamentoDAO extends Conexao{
 	 					                       executor_contrato= :executor_contrato, setor_instalacao= :setor_instalacao, responsavel_setor= :responsavel_setor,
 	 					                       telefone_setor= :telefone_setor, ramal_setor= :ramal_setor,assistencia_tec= :assistencia_tec,
 	 					                       tel_assistencia_tec= :tel_assistencia_tec, recursos= :recursos, valor_aquisicao= :valor_aquisicao, 
-	 					                       vencimento_garantia= :vencimento_garantia, garantia_vencida = :garantia_vencida, contrato_manutencao= :contrato_manutencao,
+	 					                       vencimento_garantia= :vencimento_garantia, garantia_vencida = :garantia_vencida, contrato_manutencao= :contrato_manutencao, num_contrato_manutencao= :num_contrato_manutencao,
 	 					                       numero_nota_fiscal= :numero_nota_fiscal,data_aquisicao= :data_aquisicao, manual_tecnico= :manual_tecnico, tensao_equip= :tensao_equip,
 	 					                       potencia_equip= :potencia_equip, material_entregue= :material_entregue, dhs_atualizacao= :dhs_atualizacao
 	 					                       WHERE id_equipamento= {$id_equip}");
@@ -94,14 +95,15 @@ class EquipamentoDAO extends Conexao{
 							vencimento_garantia  	=>$equip->getVencimentoGarantia(),
 							garantia_vencida		=>$equip->getGarantiaVencida(),
 							contrato_manutencao  	=>$equip->getContratoManutencao(),
+							num_contrato_manutencao =>$equip->getNumContratoManutencao(),
 							numero_nota_fiscal   	=>$equip->getNumeroNotaFiscal(),
-							data_aquisicao       =>$equip->getDataAquisicao(),
+							data_aquisicao       	=>$equip->getDataAquisicao(),
 							manual_tecnico      	=>$equip->getManualTecnico(),
 							tensao_equip         	=>$equip->getTensaoEquip(),
 							potencia_equip       	=>$equip->getPotenciaEquip(),
 							material_entregue    	=>$equip->getMaterialEntregue(),
 							dhs_atualizacao         =>$equip->getDhsAtualizacao());
-	 			 
+	 			 //var_dump($valores);exit();
 	 			$query->execute($valores);
 	 			$this->conex->commit();
 	 			$this->conex = null;

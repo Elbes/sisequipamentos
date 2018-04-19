@@ -60,7 +60,7 @@
                                     <th style="text-align: center">SERVIÇO</th>
                                     <th style="text-align: center">CHAMADO</th>
                                     <th style="text-align: center">LOCAL FALHA</th>
-                                    <th style="text-align: center">EXECUTOR CONTRATO</th>
+                                    <th style="text-align: center">LOCAL DA MANUTENÇÃO</th>
                                     <th style="text-align: center">DATA ENVIO</th>
                                     <th style="text-align: center">GRAU NECESSIDADE</th>
                                     <th style="text-align: center">ABERTURA</th>
@@ -92,11 +92,12 @@
                             	$num_patrimonio = $key['numero_chamado'];
                             	$local_falha = $key['local_falha'];
                             	$local_manutencao = utf8_encode($key['local_manutencao']);
-                            	$data_envio = $key['data_envio'];
+                            	$data_envio = dataBancoParaForm($key['data_envio']);
                             	$grau_necessidade = $key['grau_necessidade'];
                             	
                             	$cadastro = $key['dhs_abertura'];
                             	$reversed = date('d/m/Y H.i.s', strtotime($cadastro));
+                                
                             	//$estabelecimento = utf8_encode(nomeEstab($id_estabelecimento));
                             	                            		
                             	echo "

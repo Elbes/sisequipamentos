@@ -132,7 +132,7 @@
 		                              <div class="col-md-5">
 		                                   <div class="form-group">
 		                                    <label>Acessórios Acompanhados</label>
-		                                    <input type="text" class="form-control" required title="Informe os acessórios que acompanham o equipamento" name="acessorios" placeholder="Acessórios que acompanham o equipamento">
+		                                    <input type="text" class="form-control" title="Informe os acessórios que acompanham o equipamento" name="acessorios" placeholder="Acessórios que acompanham o equipamento">
 		                                  </div>
 		                             </div>
 		                         </div>
@@ -151,7 +151,7 @@
 		                         	<div class="col-md-2">
 		                                   <div class="form-group">
 		                                    <label>Envio a Manutenção</label>
-		                                    <input type="date" class="form-control" required title="Informe da tada de envio para manutenção"  name="data_envio">
+		                                    <input type="date" class="form-control" required title="Informe a data de envio para manutenção"  name="data_envio">
 		                                  </div>
 		                             </div>
 		                             
@@ -167,7 +167,7 @@
 		                        	<div class="col-md-5">
 		                                   <div class="form-group">
 		                                    <label>Nº Contrato de Manutenção</label>
-		                                    <input type="text" class="form-control" required title="Informe o número do contratom de manutenção"  name="contrato_manutencao" placeholder="Número do contrato de manutenção">
+		                                    <input type="text" class="form-control" required title="Informe o número do contrato de manutenção"  name="contrato_manutencao" placeholder="Número do contrato de manutenção">
 		                                  </div>
 		                             </div>
 			                        <div class="col-md-5">

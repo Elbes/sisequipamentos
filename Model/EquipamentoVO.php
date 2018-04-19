@@ -18,6 +18,7 @@ class EquipamentoVO {
 	private $valor_aquisicao;
 	private $vencimento_garantia;
 	private $contrato_manutencao;
+	private $num_contrato_manutencao;
 	private $numero_nota_fiscal;
 	private $data_aquisicao;
 	private $manual_tecnico;
@@ -144,6 +145,12 @@ class EquipamentoVO {
 	}
 	public function setContratoManutencao($valor) {
 		$this->contrato_manutencao = $valor;
+	}
+	public function getNumContratoManutencao() {
+		return $this->num_contrato_manutencao;
+	}
+	public function setNumContratoManutencao($valor) {
+		$this->num_contrato_manutencao = $valor;
 	}
 	public function getNumeroNotaFiscal() {
 		return $this->numero_nota_fiscal;

@@ -88,6 +88,12 @@ class ManutencaoVO {
 	public function setContratoManutencao($valor) {
 		$this->contrato_manutencao = $valor;
 	}
+	public function getNumContratoManutencao() {
+		return $this->num_contrato_manutencao;
+	}
+	public function setNumContratoManutencao($valor) {
+		$this->num_contrato_manutencao = $valor;
+	}
 	public function getGrauNecessidade() {
 		return $this->grau_necessidade;
 	}

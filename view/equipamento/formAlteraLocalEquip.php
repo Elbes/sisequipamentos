@@ -7,10 +7,9 @@
         <link href="../css/style.css" rel="stylesheet">
         <script src="../css/dist/sweetalert.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/dist/sweetalert.css">
-        <!--<script src="js/jquery.js" type="text/javascript"></script>-->
+        <script src="../js/jquery.js" type="text/javascript"></script>
         <script src="../js/jquery-1.5.2.min.js" type="text/javascript"></script>
         <script src="../js/jquery-1.11.3.min.js"></script>
-        <script src="../js/jquery.maskedinput.js"></script>
         <script src="../js/bootstrap.min.js"></script> 
         <link href="../imagens/bisturi.png" rel="shortcut icon" type="image/x-icon" /> 
          <script language="JavaScript" type="text/JavaScript">
@@ -114,7 +113,7 @@
 													echo "<option value=".$estab_usuario['id_estabelecimento'].">". utf8_decode($estab_usuario['nome_estabelecimento'])."</option>";
 												}
 		              						 ?>
-                                        </select>
+                                    </select>
                                 </div>    
                             </div>
                             <?php }?>
@@ -127,7 +126,7 @@
                             <div class="col-lg-10">
 
                                 <input type="button" class="btn btn-primary" value="CANCELAR" accesskey="" onclick="window.location = 'formEditarEquipamento.php?id_equipamento=<?php echo  $id_equipamento;?>'">    
-                                <input type="submit" class=" btn btn-primary" value="ALTERAR">
+                                <input type="submit" class=" btn btn-primary" value="ALTERAR" >
                             </div>            
                         </div>                    
 
