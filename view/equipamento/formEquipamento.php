@@ -78,9 +78,14 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Nº do patrimônio</label>
-                                    <input type="text" class="form-control" required title="Informe o número de patrimônio" name="num_patrimonio" placeholder="Patrimônio">
+                                    <input type="text" class="form-control" required title="Informe o número de patrimônio" name="num_patrimonio" placeholder="Patrimônio" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                 </div>
                             </div>
+                            <!--<script>
+                              function soNumeros(numeros) {   
+                                return numeros.replace(/D/g,"");  
+                              }--> 
+                         </script>
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Nº de série</label>

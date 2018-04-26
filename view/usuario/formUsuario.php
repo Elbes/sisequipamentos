@@ -112,7 +112,7 @@
                                             <?php 
 											$regiaoDao = new RegiaoDAO();
 												foreach ($regiaoDao->listar() as $regiao){
-													echo "<option value=".$regiao['id_regiao'].">". $regiao['numero_regiao'] ."-". utf8_encode($regiao['nome_regiao'])."</option>";
+													echo "<option value=".$regiao['id_regiao'].">". $regiao['numero_regiao'] ."-". utf8_decode($regiao['nome_regiao'])."</option>";
 												}
 		              						 ?>
                                         </select>

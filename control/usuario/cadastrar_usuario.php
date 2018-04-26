@@ -53,7 +53,12 @@
               if($dao){
                   ?>
                   
-                    <script>cadastroUsuario()</script>
+                    <script>
+                       swal({title: 'Muito Bem..!', type: 'success', text: 'Usuário Cadastrado com Sucesso!', confirmButtonText: 'OK', closeOnConfirm: false}, function () {
+                            window.location.href = '../../view/usuario/listaUsuario.php';
+                          });
+                        event.preventDefault();
+                    </script>
                       
                   <?php
               }

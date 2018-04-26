@@ -71,7 +71,7 @@ setlocale(LC_ALL, 'portuguese');
 //echo strftime('%A');
 echo "Brasília, " . utf8_encode(strftime('%A' . ", " . '%d ' . "de " . '%B ' . "de " . '%Y' . " - "));
                   
-echo $mensagem . ", " . $usuario . " " . $sobrenome;
+echo $mensagem . ", " . utf8_decode($usuario) . " " . utf8_decode($sobrenome);
 
         
     }    

@@ -19,7 +19,7 @@
 
                         ?>
 
-                        <h4 class="textobranco pull-right">Bem Vindo(a), <?php echo strtoupper($usuario); ?></h4>
+                        <h4 class="textobranco pull-right">Bem Vindo(a), <?php echo utf8_decode($usuario); ?></h4>
                     </div>
 
                 </div>
